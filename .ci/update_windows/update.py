@@ -105,10 +105,8 @@ repo_update_py_path = os.path.join(repo_path, ".ci/update_windows/update.py")
 
 cur_path = os.path.dirname(update_py_path)
 
-
 req_path = os.path.join(cur_path, "current_requirements.txt")
 repo_req_path = os.path.join(repo_path, "requirements.txt")
-
 
 def files_equal(file1, file2):
     try:
@@ -122,7 +120,6 @@ def file_size(f):
     except:
         return 0
 
-
 if self_update and not files_equal(update_py_path, repo_update_py_path) and file_size(repo_update_py_path) > 10:
     shutil.copy(repo_update_py_path, os.path.join(cur_path, "update_new.py"))
     exit()
@@ -134,7 +131,6 @@ if not os.path.exists(req_path) or not files_equal(repo_req_path, req_path):
         shutil.copy(repo_req_path, req_path)
     except:
         pass
-
 
 stable_update_script = os.path.join(repo_path, ".ci/update_windows/update_comfyui_stable.bat")
 stable_update_script_to = os.path.join(cur_path, "update_comfyui_stable.bat")
